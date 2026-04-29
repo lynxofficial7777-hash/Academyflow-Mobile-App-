@@ -116,7 +116,7 @@ class _SplashRouterState extends State<SplashRouter> with TickerProviderStateMix
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFF0F172A), Color(0xFF1E1B4B), Color(0xFF312E81)],
+            colors: [Color(0xFF0A0A0A), Color(0xFF1A0000), Color(0xFF2D0000)],
           ),
         ),
         child: Center(
@@ -145,7 +145,7 @@ class _SplashRouterState extends State<SplashRouter> with TickerProviderStateMix
                         ),
                       ],
                     ),
-                    child: const Icon(Icons.insights_rounded, size: 52, color: Colors.white),
+                    child: const Icon(Icons.school_rounded, size: 52, color: Colors.white),
                   ),
                 ),
                 const SizedBox(height: 28),
@@ -163,7 +163,7 @@ class _SplashRouterState extends State<SplashRouter> with TickerProviderStateMix
                 const SizedBox(height: 10),
                 FadeTransition(
                   opacity: _subtitleFade,
-                  child: const Text('AI-Powered Student Analytics',
+                  child: const Text('Student Performance Tracker',
                     style: TextStyle(color: AppTheme.textMuted, fontSize: 15, letterSpacing: 0.5),
                   ),
                 ),

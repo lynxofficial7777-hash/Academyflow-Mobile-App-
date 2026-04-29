@@ -158,7 +158,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF0F172A), Color(0xFF1E1B4B), Color(0xFF312E81)],
+            colors: [Color(0xFF0A0A0A), Color(0xFF1A0000), Color(0xFF2D0000)],
             stops: [0.0, 0.5, 1.0],
           ),
         ),

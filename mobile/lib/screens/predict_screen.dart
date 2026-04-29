@@ -149,7 +149,7 @@ class _PredictScreenState extends State<PredictScreen> with SingleTickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Predict Performance'),
+        title: const Text('Score Predictor'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, size: 20),
           onPressed: () => Navigator.pop(context),
@@ -159,7 +159,7 @@ class _PredictScreenState extends State<PredictScreen> with SingleTickerProvider
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter, end: Alignment.bottomCenter,
-            colors: [Color(0xFF0F172A), Color(0xFF1E1B4B), Color(0xFF312E81)],
+            colors: [Color(0xFF0A0A0A), Color(0xFF1A0000), Color(0xFF2D0000)],
             stops: [0.0, 0.6, 1.0],
           ),
         ),
@@ -281,9 +281,9 @@ class _PredictScreenState extends State<PredictScreen> with SingleTickerProvider
                           : const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.auto_awesome, size: 20),
+                                Icon(Icons.bar_chart_rounded, size: 20),
                                 SizedBox(width: 10),
-                                Text('Predict Performance',
+                                Text('Check My Score',
                                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
                               ],
                             ),

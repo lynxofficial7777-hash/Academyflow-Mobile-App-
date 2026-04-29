@@ -110,7 +110,7 @@ class _PerformanceTab extends StatelessWidget {
                 const Row(children: [
                   Icon(Icons.science_outlined, size: 20, color: AppTheme.secondary),
                   SizedBox(width: 8),
-                  Text('AI Feature Analysis',
+                  Text('Performance Breakdown',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: AppTheme.textPrimary)),
                 ]),
                 const SizedBox(height: 12),
@@ -651,15 +651,15 @@ class _InsightsTab extends StatelessWidget {
           borderColor: AppTheme.primary.withValues(alpha: 0.3),
           child: Row(
             children: [
-              const Icon(Icons.auto_awesome, size: 28, color: AppTheme.primary),
+              const Icon(Icons.lightbulb_outline, size: 28, color: AppTheme.primary),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Personalized Insights',
+                    const Text('Study Insights',
                       style: TextStyle(color: AppTheme.textPrimary, fontWeight: FontWeight.w700, fontSize: 15)),
-                    Text('${insights.length} insights based on your study habits',
+                    Text('${insights.length} tips based on your study habits',
                       style: const TextStyle(color: AppTheme.textMuted, fontSize: 12)),
                   ],
                 ),
@@ -818,7 +818,7 @@ class _ResultScreenState extends State<ResultScreen> with SingleTickerProviderSt
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft, end: Alignment.bottomRight,
-            colors: [AppTheme.bgDark, AppTheme.bgMid, Color(0xFF312E81)],
+            colors: [AppTheme.bgDark, AppTheme.bgMid, Color(0xFF2D0000)],
           ),
         ),
         child: Column(

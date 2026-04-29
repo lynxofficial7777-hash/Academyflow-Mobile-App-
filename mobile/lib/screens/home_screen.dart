@@ -4,6 +4,8 @@ import '../theme.dart';
 import '../widgets/glass_card.dart';
 import 'predict_screen.dart';
 import 'history_screen.dart';
+import 'timer_screen.dart';
+import 'grade_calculator_screen.dart';
 import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,8 +48,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF0F172A), Color(0xFF1E1B4B), Color(0xFF312E81)],
-            stops: [0.0, 0.6, 1.0],
+            colors: [Color(0xFF0A0A0A), Color(0xFF1A0000), Color(0xFF2D0000)],
+            stops: [0.0, 0.5, 1.0],
           ),
         ),
         child: SafeArea(
@@ -66,11 +68,18 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           height: 46,
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(
-                              colors: [AppTheme.primary, AppTheme.secondary],
+                              colors: [AppTheme.primary, AppTheme.primaryDark],
                             ),
                             borderRadius: BorderRadius.circular(14),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.primary.withValues(alpha: 0.4),
+                                blurRadius: 12,
+                                spreadRadius: 1,
+                              ),
+                            ],
                           ),
-                          child: const Icon(Icons.insights_rounded, size: 24, color: Colors.white),
+                          child: const Icon(Icons.school_rounded, size: 24, color: Colors.white),
                         ),
                         const SizedBox(width: 14),
                         Expanded(
@@ -138,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   ),
                 ),
 
-                const SliverToBoxAdapter(child: SizedBox(height: 28)),
+                const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
                 // Hero CTA card
                 SliverToBoxAdapter(
@@ -150,15 +159,22 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            AppTheme.primary.withValues(alpha: 0.25),
-                            AppTheme.secondary.withValues(alpha: 0.15),
+                            AppTheme.primary.withValues(alpha: 0.3),
+                            AppTheme.primaryDark.withValues(alpha: 0.2),
                           ],
                         ),
                         borderRadius: BorderRadius.circular(24),
-                        border: Border.all(color: AppTheme.primary.withValues(alpha: 0.25)),
+                        border: Border.all(color: AppTheme.primary.withValues(alpha: 0.4)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppTheme.primary.withValues(alpha: 0.15),
+                            blurRadius: 20,
+                            spreadRadius: 2,
+                          ),
+                        ],
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(24),
+                        padding: const EdgeInsets.all(22),
                         child: Column(
                           children: [
                             Row(
@@ -168,31 +184,31 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                   height: 52,
                                   decoration: BoxDecoration(
                                     gradient: const LinearGradient(
-                                      colors: [AppTheme.primary, AppTheme.secondary],
+                                      colors: [AppTheme.primary, AppTheme.primaryDark],
                                     ),
                                     borderRadius: BorderRadius.circular(16),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppTheme.primary.withValues(alpha: 0.3),
+                                        color: AppTheme.primary.withValues(alpha: 0.4),
                                         blurRadius: 16,
                                       ),
                                     ],
                                   ),
-                                  child: const Icon(Icons.auto_awesome, size: 26, color: Colors.white),
+                                  child: const Icon(Icons.bar_chart_rounded, size: 26, color: Colors.white),
                                 ),
                                 const SizedBox(width: 16),
                                 const Expanded(
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('Predict Performance',
+                                      Text('Performance Check',
                                         style: TextStyle(
                                           fontSize: 19, fontWeight: FontWeight.w800,
                                           color: AppTheme.textPrimary,
                                         ),
                                       ),
                                       SizedBox(height: 4),
-                                      Text('Get AI-powered insights & a personalized study plan',
+                                      Text('Get detailed insights & a personalized study plan',
                                         style: TextStyle(color: AppTheme.textSecondary, fontSize: 13),
                                       ),
                                     ],
@@ -203,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             const SizedBox(height: 20),
                             SizedBox(
                               width: double.infinity,
-                              height: 50,
+                              height: 52,
                               child: ElevatedButton(
                                 onPressed: () => Navigator.push(context,
                                   PageRouteBuilder(
@@ -227,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                   children: [
                                     Icon(Icons.play_arrow_rounded, size: 22),
                                     SizedBox(width: 8),
-                                    Text('Start Prediction',
+                                    Text('Start Now',
                                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
                                   ],
                                 ),
@@ -246,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 const SliverToBoxAdapter(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text('Explore Features',
+                    child: Text('Tools',
                       style: TextStyle(
                         fontSize: 17, fontWeight: FontWeight.w800,
                         color: AppTheme.textPrimary, letterSpacing: -0.3,
@@ -267,33 +283,33 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     children: [
                       _FeatureCard(
                         icon: Icons.analytics_rounded,
-                        title: 'Performance\nAnalysis',
-                        subtitle: 'AI score prediction',
+                        title: 'Score\nPredictor',
+                        subtitle: 'Check your score',
                         color: AppTheme.primary,
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (_) => const PredictScreen())),
                       ),
                       _FeatureCard(
-                        icon: Icons.flag_rounded,
-                        title: 'Goal\nTracker',
-                        subtitle: 'Set & track goals',
-                        color: AppTheme.secondary,
+                        icon: Icons.timer_rounded,
+                        title: 'Study\nTimer',
+                        subtitle: 'Focus sessions',
+                        color: const Color(0xFFFF6D00),
                         onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const PredictScreen())),
+                          MaterialPageRoute(builder: (_) => const TimerScreen())),
                       ),
                       _FeatureCard(
-                        icon: Icons.people_rounded,
-                        title: 'Peer\nComparison',
-                        subtitle: 'Compare with class',
-                        color: AppTheme.success,
+                        icon: Icons.calculate_rounded,
+                        title: 'Grade\nCalculator',
+                        subtitle: 'Calculate GPA',
+                        color: const Color(0xFF00BFA5),
                         onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const PredictScreen())),
+                          MaterialPageRoute(builder: (_) => const GradeCalculatorScreen())),
                       ),
                       _FeatureCard(
                         icon: Icons.history_rounded,
-                        title: 'Prediction\nHistory',
+                        title: 'My\nHistory',
                         subtitle: 'Past results',
-                        color: AppTheme.warning,
+                        color: const Color(0xFF7C4DFF),
                         onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (_) => const HistoryScreen())),
                       ),
@@ -309,12 +325,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: GlassCard(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-                      borderColor: AppTheme.accent.withValues(alpha: 0.2),
+                      borderColor: AppTheme.primary.withValues(alpha: 0.2),
                       child: Row(
                         children: [
-                          _StatItem(icon: Icons.speed_rounded, label: 'Fast', value: 'Prediction', color: AppTheme.accent),
+                          _StatItem(icon: Icons.speed_rounded, label: 'Instant', value: 'Results', color: AppTheme.primary),
                           Container(width: 1, height: 36, color: AppTheme.cardBorder),
-                          _StatItem(icon: Icons.psychology_rounded, label: 'ML', value: 'Powered', color: AppTheme.secondary),
+                          _StatItem(icon: Icons.psychology_rounded, label: 'Smart', value: 'Analysis', color: const Color(0xFFFF6D00)),
                           Container(width: 1, height: 36, color: AppTheme.cardBorder),
                           _StatItem(icon: Icons.shield_rounded, label: '99%+', value: 'Accuracy', color: AppTheme.success),
                         ],
@@ -353,17 +369,18 @@ class _FeatureCard extends StatelessWidget {
     return AnimatedGlassCard(
       onTap: onTap,
       padding: const EdgeInsets.all(18),
-      borderColor: color.withValues(alpha: 0.2),
+      borderColor: color.withValues(alpha: 0.25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 42,
-            height: 42,
+            width: 44,
+            height: 44,
             decoration: BoxDecoration(
               color: color.withValues(alpha: 0.15),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(13),
+              border: Border.all(color: color.withValues(alpha: 0.3)),
             ),
             child: Icon(icon, size: 22, color: color),
           ),
@@ -371,14 +388,14 @@ class _FeatureCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title,
-                style: TextStyle(
+                style: const TextStyle(
                   color: AppTheme.textPrimary,
                   fontWeight: FontWeight.w700,
                   fontSize: 14,
                   height: 1.2,
                 ),
               ),
-              const SizedBox(height: 2),
+              const SizedBox(height: 3),
               Text(subtitle,
                 style: TextStyle(color: color, fontSize: 11, fontWeight: FontWeight.w600),
               ),

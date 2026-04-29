@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const primary = Color(0xFF6366F1);
-  static const primaryDark = Color(0xFF4F46E5);
-  static const secondary = Color(0xFF8B5CF6);
-  static const accent = Color(0xFF06B6D4);
-  static const success = Color(0xFF10B981);
-  static const warning = Color(0xFFF59E0B);
-  static const danger = Color(0xFFEF4444);
-  static const bgDark = Color(0xFF0F172A);
-  static const bgMid = Color(0xFF1E1B4B);
-  static const textPrimary = Color(0xFFF1F5F9);
-  static const textSecondary = Color(0xFFCBD5E1);
-  static const textMuted = Color(0xFF94A3B8);
-  static const cardBg = Color(0x14FFFFFF);
-  static const cardBorder = Color(0x2EFFFFFF);
+  static const primary = Color(0xFFE53935);
+  static const primaryDark = Color(0xFFB71C1C);
+  static const secondary = Color(0xFFFF5252);
+  static const accent = Color(0xFFFF1744);
+  static const success = Color(0xFF4CAF50);
+  static const warning = Color(0xFFFF9800);
+  static const danger = Color(0xFFE53935);
+  static const bgDark = Color(0xFF0A0A0A);
+  static const bgMid = Color(0xFF1A0000);
+  static const bgCard = Color(0xFF1E0A0A);
+  static const textPrimary = Color(0xFFF5F5F5);
+  static const textSecondary = Color(0xFFBDBDBD);
+  static const textMuted = Color(0xFF757575);
+  static const cardBg = Color(0x18FFFFFF);
+  static const cardBorder = Color(0x25FFFFFF);
 
   static ThemeData get darkTheme => ThemeData(
         brightness: Brightness.dark,
@@ -69,7 +70,7 @@ class AppTheme {
             borderSide: const BorderSide(color: danger),
           ),
           labelStyle: const TextStyle(color: textMuted, fontSize: 14),
-          hintStyle: const TextStyle(color: Color(0xFF64748B), fontSize: 14),
+          hintStyle: const TextStyle(color: Color(0xFF616161), fontSize: 14),
         ),
         cardTheme: CardThemeData(
           color: cardBg,
