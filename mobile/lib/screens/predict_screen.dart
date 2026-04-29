@@ -174,7 +174,7 @@ class _PredictScreenState extends State<PredictScreen> with SingleTickerProvider
                     _buildSlider(
                       label: 'Study Hours / Day',
                       icon: Icons.menu_book_rounded,
-                      value: _hoursStudied, min: 0, max: 8, divisions: 16,
+                      value: _hoursStudied, min: 0, max: 6, divisions: 12,
                       onChanged: (v) => setState(() => _hoursStudied = v),
                       unit: 'h',
                       color: AppTheme.primary,
