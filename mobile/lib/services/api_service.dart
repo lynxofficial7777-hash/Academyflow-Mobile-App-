@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://localhost:8000';
+  static const String baseUrl = 'https://academyflow-mobile-app.onrender.com';
   static final _client = http.Client();
   static Timer? _keepAliveTimer;
 
