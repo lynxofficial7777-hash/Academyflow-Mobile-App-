@@ -12,12 +12,12 @@ class PredictScreen extends StatefulWidget {
 }
 
 class _PredictScreenState extends State<PredictScreen> with SingleTickerProviderStateMixin {
-  double _hoursStudied = 6;
-  double _previousScores = 75;
+  double _hoursStudied = 3;
+  double _previousScores = 65;
   bool _extracurricular = false;
   double _sleepHours = 7;
-  double _samplePapers = 4;
-  double _targetScore = 85;
+  double _samplePapers = 2;
+  double _targetScore = 75;
   bool _loading = false;
 
   late AnimationController _animController;
@@ -174,7 +174,7 @@ class _PredictScreenState extends State<PredictScreen> with SingleTickerProvider
                     _buildSlider(
                       label: 'Study Hours / Day',
                       icon: Icons.menu_book_rounded,
-                      value: _hoursStudied, min: 0, max: 12, divisions: 24,
+                      value: _hoursStudied, min: 0, max: 8, divisions: 16,
                       onChanged: (v) => setState(() => _hoursStudied = v),
                       unit: 'h',
                       color: AppTheme.primary,
@@ -229,7 +229,7 @@ class _PredictScreenState extends State<PredictScreen> with SingleTickerProvider
                     _buildSlider(
                       label: 'Sleep Hours / Night',
                       icon: Icons.bedtime_rounded,
-                      value: _sleepHours, min: 4, max: 12, divisions: 16,
+                      value: _sleepHours, min: 4, max: 10, divisions: 12,
                       onChanged: (v) => setState(() => _sleepHours = v),
                       unit: 'h',
                       color: AppTheme.accent,
@@ -238,7 +238,7 @@ class _PredictScreenState extends State<PredictScreen> with SingleTickerProvider
                     _buildSlider(
                       label: 'Practice Papers Done',
                       icon: Icons.description_rounded,
-                      value: _samplePapers, min: 0, max: 10, divisions: 10,
+                      value: _samplePapers, min: 0, max: 5, divisions: 5,
                       onChanged: (v) => setState(() => _samplePapers = v),
                       color: AppTheme.success,
                     ),
