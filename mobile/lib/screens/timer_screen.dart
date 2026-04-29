@@ -110,7 +110,7 @@ class _TimerScreenState extends State<TimerScreen> with TickerProviderStateMixin
           ),
         ),
         child: SafeArea(
-          child: Padding(
+          child: SingleChildScrollView(
             padding: const EdgeInsets.all(24),
             child: Column(
               children: [
