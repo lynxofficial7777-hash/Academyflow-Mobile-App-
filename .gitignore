@@ -1,0 +1,27 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# uv / pyproject scaffolding
+uv.lock
+pyproject.toml
+.python-version
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Flutter build
+mobile/build/
+mobile/.dart_tool/
+mobile/android/.gradle/
+mobile/.idea/
+mobile/android/.gradle/
