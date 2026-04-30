@@ -126,7 +126,7 @@ async def warmup():
 
 
 @app.post("/api/predict", response_model=PredictionResponse, tags=["Prediction"])
-async def predict_performance(request: PredictionRequest):
+async def predict_performance(request: PredictionRequest, authorization: str = Header(None)):
     if not model_instance.model_loaded:
         raise HTTPException(
             status_code=503,
@@ -229,6 +229,32 @@ async def predict_performance(request: PredictionRequest):
                 request.target_score,
             )
         ]
+
+    # Save to history if authenticated
+    if authorization:
+        try:
+            import json, base64
+            token = authorization.replace("Bearer ", "")
+            payload = json.loads(base64.urlsafe_b64decode(token.split(".")[1] + "=="))
+            user_id = payload.get("sub")
+            if user_id:
+                db.save_prediction(token, user_id, {
+                    "hours_studied": request.hours_studied,
+                    "previous_scores": request.previous_scores,
+                    "extracurricular": extra_int,
+                    "sleep_hours": request.sleep_hours,
+                    "sample_papers": request.sample_papers,
+                    "predicted_score": round(prediction, 1),
+                    "grade": grade_info["grade"],
+                    "target_score": request.target_score,
+                    "input_data": {
+                        "hours_studied": request.hours_studied,
+                        "previous_scores": request.previous_scores,
+                        "sleep_hours": request.sleep_hours,
+                    }
+                })
+        except Exception:
+            pass  # Don't fail prediction if history save fails
 
     return response
 
